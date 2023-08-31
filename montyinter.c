@@ -145,4 +145,6 @@ int main(int argc, char **argv) {
 			exit(EXIT_FAILURE); } }
 	fclose(file);
 	free_all(stack, buffer);
-	return (0); }
+	return (0);
+	}
+	
