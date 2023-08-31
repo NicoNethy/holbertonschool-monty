@@ -1,3 +1,27 @@
+#include "monty.h"
+
+/**
+ * _isdigit - checks if a string is a number
+ * @c: character to check
+ * Return: 1 if its a number, 0 otherwise
+*/
+int _isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+}
+/**
+ * push - function to add a new element to the top of the stack
+ * @stack: pointer to pointer to the first element on the stack
+ * @line_number: number of the current line
+ * Return: 0 if the element is successfully added to the stack
+*/
 int push(stack_t **stack, unsigned int line_number)
 {
 	char *numchar = NULL;
