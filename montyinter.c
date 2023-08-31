@@ -87,6 +87,7 @@ int pall(stack_t **stack)
 /**
  * free_all - frees all the tasty things
  * @stack: pointer to pointer to the first element on the stack
+ * @buffer: its the imput
 */
 void free_all(stack_t *stack, char *buffer)
 {
