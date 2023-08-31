@@ -106,7 +106,8 @@ void free_all(stack_t *stack, char *buffer)
  * @argv: index of strings containing the arguments passed on the command line
  * Return: 0 if the program runs correctly
 */
-int main(int argc, char **argv){
+int main(int argc, char **argv)
+{
 	stack_t *stack = NULL;
 	char *buffer = NULL, *code = NULL;
 	size_t buffsize = 0;
@@ -124,8 +125,7 @@ int main(int argc, char **argv){
 		exit(EXIT_FAILURE); }
 	while (getline(&buffer, &buffsize, file) != -1)
 	{
-		line_number++;
-		code = strtok(buffer, " \t\n");
+		line_number++, code = strtok(buffer, " \t\n");
 		if (code == NULL)
 			continue;
 		if (strcmp(code, "push") == 0)
