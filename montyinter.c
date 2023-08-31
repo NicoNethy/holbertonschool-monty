@@ -60,3 +60,38 @@ int push(stack_t **stack, unsigned int line_number)
 	*stack = new_node;
 	return (0);
 }
+/**
+ * pall - print all elements in the stack
+ * @stack: pointer to pointer to the first element on the stack
+ * Return: 0 if the stack prints successfully
+*/
+int pall(stack_t **stack)
+{
+	stack_t *current = *stack;
+
+	if (current == NULL)
+	{
+		return (0);
+	}
+
+	while (current != NULL)
+	{
+		if (current->n)
+			printf("%u\n", current->n);
+		else
+			printf("%u\n", 0);
+		current = current->next;
+	}
+	return (0);
+}
+void free_all(stack_t *stack, char *buffer)
+{
+	while (stack != NULL)
+	{
+		stack_t *next_node = stack->next;
+
+		free(stack);
+		stack = next_node;
+	}
+	free(buffer);
+}
