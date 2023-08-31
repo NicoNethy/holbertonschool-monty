@@ -8,13 +8,13 @@
 */
 void pint(stack_t **stack, unsigned int line_number)
 {
-    if (*stack == NULL)
-    {
-        fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
-        exit(EXIT_FAILURE);
-    }
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
-    printf("%d\n", (*stack)->n);
+	printf("%d\n", (*stack)->n);
 }
 /**
  * pop - function to remove the top element from the stack
@@ -47,15 +47,15 @@ int pop(stack_t **stack, unsigned int line_number)
 */
 void swap(stack_t **stack, unsigned int line_number)
 {
-    if (*stack == NULL || (*stack)->next == NULL)
-    {
-        fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
-        exit(EXIT_FAILURE);
-    }
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
-    int temp = (*stack)->n;
-    (*stack)->n = (*stack)->next->n;
-    (*stack)->next->n = temp;
+	int temp = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = temp;
 }
 /**
  * add - add the top two elements
@@ -65,15 +65,15 @@ void swap(stack_t **stack, unsigned int line_number)
 */
 int add(stack_t **stack, unsigned int line_number)
 {
-    if (*stack == NULL || (*stack)->next == NULL)
-    {
-        fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-        exit(EXIT_FAILURE);
-    }
-    
-    int sum = (*stack)->n + (*stack)->next->n;
-    (*stack)->next->n = sum;
-    pop(stack, line_number);
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	int sum = (*stack)->n + (*stack)->next->n;
+	(*stack)->next->n = sum;
+	pop(stack, line_number);
 	return (0);
 }
 /**
@@ -82,5 +82,5 @@ int add(stack_t **stack, unsigned int line_number)
 */
 void nop(stack_t **stack)
 {
-    (void)stack;
+	(void)stack;
 }
