@@ -106,22 +106,23 @@ void free_all(stack_t *stack, char *buffer)
  * @argv: index of strings containing the arguments passed on the command line
  * Return: 0 if the program runs correctly
 */
-int main(int argc, char **argv) 
+int main(int argc, char **argv)
 {
 	stack_t *stack = NULL;
 	char *buffer = NULL, *code = NULL;
 	size_t buffsize = 0;
 	unsigned int line_number = 0;
+	FILE *file = NULL;
 
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE); }
-	FILE *file = fopen(argv[1], "r");
+	file = fopen(argv[1], "r");
 	if (file == NULL) 
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE); }
+		exit(EXIT_FAILURE);}
 	while (getline(&buffer, &buffsize, file) != -1) 
 	{
 		line_number++;
@@ -132,20 +133,20 @@ int main(int argc, char **argv)
 			push(&stack, line_number);
 		else if (strcmp(code, "pall") == 0)
 			pall(&stack);
-		else if(strcmp(code, "pint") == 0)
+		else if (strcmp(code, "pint") == 0)
 			pint(&stack, line_number);
-		else if(strcmp(code, "pop") == 0)
+		else if (strcmp(code, "pop") == 0)
 			pop(&stack, line_number);
-		else if(strcmp(code, "swap") == 0)
+		else if (strcmp(code, "swap") == 0)
 			swap(&stack, line_number);
-		else if(strcmp(code, "add") == 0)
+		else if (strcmp(code, "add") == 0)
 			add(&stack, line_number);
-		else if(strcmp(code, "nop") == 0)
+		else if (strcmp(code, "nop") == 0)
 			nop(&stack);
-		else {
+		else
+		{
 			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, code);
 			exit(EXIT_FAILURE); } }
-	fclose(file);
-	free_all(stack, buffer);
+	fclose(file), free_all(stack, buffer);
 	return (0);
 	}
