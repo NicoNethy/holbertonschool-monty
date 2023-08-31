@@ -84,6 +84,10 @@ int pall(stack_t **stack)
 	}
 	return (0);
 }
+/**
+ * free_all - frees all the tasty things
+ * @stack: pointer to pointer to the first element on the stack
+*/
 void free_all(stack_t *stack, char *buffer)
 {
 	while (stack != NULL)
